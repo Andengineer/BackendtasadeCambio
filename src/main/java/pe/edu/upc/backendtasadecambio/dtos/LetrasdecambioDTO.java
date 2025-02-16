@@ -9,7 +9,7 @@ public class LetrasdecambioDTO {
     private float monto;
     private float tea;
     private LocalDate fechav;
-    private LocalTime fechad;
+    private LocalDate fechad;
     private String deudor;
     private String acreedor;
     private float monto_recibido;
@@ -57,11 +57,11 @@ public class LetrasdecambioDTO {
         this.fechav = fechav;
     }
 
-    public LocalTime getFechad() {
+    public LocalDate getFechad() {
         return fechad;
     }
 
-    public void setFechad(LocalTime fechad) {
+    public void setFechad(LocalDate fechad) {
         this.fechad = fechad;
     }
 

@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDate;
 
 //No se toca a menos que se modifique la base de datos
 @Entity
@@ -22,7 +22,7 @@ public class Letrasdecambio implements Serializable  {
     @Column(name="fechav",nullable = false)
     private LocalDate fechav;
     @Column(name="fechad",nullable = false)
-    private LocalTime fechad;
+    private LocalDate fechad;
     @Column(name="deudor",length = 100,nullable = false)
     private String deudor;
     @Column(name="acreedor",length = 100,nullable = false)
@@ -37,7 +37,7 @@ public class Letrasdecambio implements Serializable  {
     private float importe_retenido;
     public Letrasdecambio() {}
 
-    public Letrasdecambio(int id_letra, String moneda, float monto, float tea, LocalDate fechav, LocalTime fechad, String deudor, String acreedor, float monto_recibido, float monto_entregado, float importe_descontado, float importe_retenido) {
+    public Letrasdecambio(int id_letra, String moneda, float monto, float tea, LocalDate fechav, LocalDate fechad, String deudor, String acreedor, float monto_recibido, float monto_entregado, float importe_descontado, float importe_retenido) {
         this.id_letra = id_letra;
         this.moneda = moneda;
         this.monto = monto;
@@ -92,11 +92,11 @@ public class Letrasdecambio implements Serializable  {
         this.fechav = fechav;
     }
 
-    public LocalTime getFechad() {
+    public LocalDate getFechad() {
         return fechad;
     }
 
-    public void setFechad(LocalTime fechad) {
+    public void setFechad(LocalDate fechad) {
         this.fechad = fechad;
     }
 
