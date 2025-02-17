@@ -2,6 +2,7 @@ package pe.edu.upc.backendtasadecambio.serviceInterfaces;
 
 import pe.edu.upc.backendtasadecambio.entities.Letrasdecambio;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface ILetrasdecambioService {
@@ -11,4 +12,5 @@ public interface ILetrasdecambioService {
     public List<Letrasdecambio> list();
     //Delete
     public void delete(int id);
+    public List<Letrasdecambio> buscarfecha(LocalDate fecha);
 }
