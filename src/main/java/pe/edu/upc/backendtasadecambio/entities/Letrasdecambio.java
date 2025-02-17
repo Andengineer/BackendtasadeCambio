@@ -33,7 +33,7 @@ public class Letrasdecambio implements Serializable  {
     private float monto_entregado;
     @Column(name="importe_descontado",nullable = false)
     private float importe_descontado;
-    @Column(name="importe_retenido",nullable = false)
+    @Column(name="importe_retenido",nullable = true)
     private float importe_retenido;
     public Letrasdecambio() {}
 
