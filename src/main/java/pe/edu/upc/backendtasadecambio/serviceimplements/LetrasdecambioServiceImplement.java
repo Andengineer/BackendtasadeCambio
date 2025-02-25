@@ -32,4 +32,9 @@ public class LetrasdecambioServiceImplement implements ILetrasdecambioService {
     public List<Letrasdecambio> buscarfecha(LocalDate fecha) {
         return lR.buscarfecha(fecha);
     }
+
+    @Override
+    public void update(Letrasdecambio letrasdecambio) {
+        lR.save(letrasdecambio);
+    }
 }

@@ -1,21 +1,21 @@
 package pe.edu.upc.backendtasadecambio.dtos;
 
+import pe.edu.upc.backendtasadecambio.entities.Carteras;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class LetrasdecambioDTO {
     private int id_letra;
-    private String moneda;
     private float monto;
     private float tea;
     private LocalDate fechav;
-    private LocalDate fechad;
     private String deudor;
-    private String acreedor;
     private float monto_recibido;
     private float monto_entregado;
     private float importe_descontado;
     private float importe_retenido;
+    private Carteras cartera;
 
     public int getId_letra() {
         return id_letra;
@@ -23,14 +23,6 @@ public class LetrasdecambioDTO {
 
     public void setId_letra(int id_letra) {
         this.id_letra = id_letra;
-    }
-
-    public String getMoneda() {
-        return moneda;
-    }
-
-    public void setMoneda(String moneda) {
-        this.moneda = moneda;
     }
 
     public float getMonto() {
@@ -57,28 +49,12 @@ public class LetrasdecambioDTO {
         this.fechav = fechav;
     }
 
-    public LocalDate getFechad() {
-        return fechad;
-    }
-
-    public void setFechad(LocalDate fechad) {
-        this.fechad = fechad;
-    }
-
     public String getDeudor() {
         return deudor;
     }
 
     public void setDeudor(String deudor) {
         this.deudor = deudor;
-    }
-
-    public String getAcreedor() {
-        return acreedor;
-    }
-
-    public void setAcreedor(String acreedor) {
-        this.acreedor = acreedor;
     }
 
     public float getMonto_recibido() {
@@ -111,5 +87,13 @@ public class LetrasdecambioDTO {
 
     public void setImporte_retenido(float importe_retenido) {
         this.importe_retenido = importe_retenido;
+    }
+
+    public Carteras getCartera() {
+        return cartera;
+    }
+
+    public void setCartera(Carteras cartera) {
+        this.cartera = cartera;
     }
 }

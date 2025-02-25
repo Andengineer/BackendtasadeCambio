@@ -1,12 +1,10 @@
 package pe.edu.upc.backendtasadecambio.controllers;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.backendtasadecambio.dtos.LetrasdecambioDTO;
 import pe.edu.upc.backendtasadecambio.entities.Letrasdecambio;
 import pe.edu.upc.backendtasadecambio.serviceInterfaces.ILetrasdecambioService;
-
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -39,5 +37,11 @@ public class LetrasdecambioController {
             ModelMapper m=new ModelMapper();
             return m.map(x,LetrasdecambioDTO.class);
         }).collect(Collectors.toList());
+    }
+    @PutMapping
+    public void update(@RequestBody LetrasdecambioDTO dto){
+        ModelMapper m = new ModelMapper();
+        Letrasdecambio ro=m.map(dto,Letrasdecambio.class);
+        lS.update(ro);
     }
 }

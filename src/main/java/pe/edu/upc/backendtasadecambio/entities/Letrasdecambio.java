@@ -13,20 +13,14 @@ public class Letrasdecambio implements Serializable  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_letra;
-    @Column(name="moneda",length = 100,nullable = false)
-    private String moneda;
     @Column(name="monto",nullable = false)
     private float monto;
     @Column(name="tea",nullable = false)
     private float tea;
     @Column(name="fechav",nullable = false)
     private LocalDate fechav;
-    @Column(name="fechad",nullable = false)
-    private LocalDate fechad;
     @Column(name="deudor",length = 100,nullable = false)
     private String deudor;
-    @Column(name="acreedor",length = 100,nullable = false)
-    private String acreedor;
     @Column(name="monto_recibido",nullable = false)
     private float monto_recibido;
     @Column(name="monto_entregado",nullable = false)
@@ -35,21 +29,22 @@ public class Letrasdecambio implements Serializable  {
     private float importe_descontado;
     @Column(name="importe_retenido",nullable = true)
     private float importe_retenido;
+    @ManyToOne
+    @JoinColumn(name = "id_cartera")
+    private Carteras cartera;
     public Letrasdecambio() {}
 
-    public Letrasdecambio(int id_letra, String moneda, float monto, float tea, LocalDate fechav, LocalDate fechad, String deudor, String acreedor, float monto_recibido, float monto_entregado, float importe_descontado, float importe_retenido) {
+    public Letrasdecambio(int id_letra, float monto, float tea, LocalDate fechav, String deudor, float monto_recibido, float monto_entregado, float importe_descontado, float importe_retenido, Carteras cartera) {
         this.id_letra = id_letra;
-        this.moneda = moneda;
         this.monto = monto;
         this.tea = tea;
         this.fechav = fechav;
-        this.fechad = fechad;
         this.deudor = deudor;
-        this.acreedor = acreedor;
         this.monto_recibido = monto_recibido;
         this.monto_entregado = monto_entregado;
         this.importe_descontado = importe_descontado;
         this.importe_retenido = importe_retenido;
+        this.cartera = cartera;
     }
 
     public int getId_letra() {
@@ -58,14 +53,6 @@ public class Letrasdecambio implements Serializable  {
 
     public void setId_letra(int id_letra) {
         this.id_letra = id_letra;
-    }
-
-    public String getMoneda() {
-        return moneda;
-    }
-
-    public void setMoneda(String moneda) {
-        this.moneda = moneda;
     }
 
     public float getMonto() {
@@ -92,28 +79,12 @@ public class Letrasdecambio implements Serializable  {
         this.fechav = fechav;
     }
 
-    public LocalDate getFechad() {
-        return fechad;
-    }
-
-    public void setFechad(LocalDate fechad) {
-        this.fechad = fechad;
-    }
-
     public String getDeudor() {
         return deudor;
     }
 
     public void setDeudor(String deudor) {
         this.deudor = deudor;
-    }
-
-    public String getAcreedor() {
-        return acreedor;
-    }
-
-    public void setAcreedor(String acreedor) {
-        this.acreedor = acreedor;
     }
 
     public float getMonto_recibido() {
@@ -146,5 +117,13 @@ public class Letrasdecambio implements Serializable  {
 
     public void setImporte_retenido(float importe_retenido) {
         this.importe_retenido = importe_retenido;
+    }
+
+    public Carteras getCartera() {
+        return cartera;
+    }
+
+    public void setCartera(Carteras cartera) {
+        this.cartera = cartera;
     }
 }
