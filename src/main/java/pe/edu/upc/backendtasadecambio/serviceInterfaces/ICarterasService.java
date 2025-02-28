@@ -13,4 +13,6 @@ public interface ICarterasService {
     public List<Carteras> list();
     //Delete
     public void delete(int id);
+
+    void calcularTCEA(int id_cartera);
 }

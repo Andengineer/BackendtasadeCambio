@@ -29,12 +29,14 @@ public class Letrasdecambio implements Serializable  {
     private float importe_descontado;
     @Column(name="importe_retenido",nullable = true)
     private float importe_retenido;
+    @Column(name="dias_descontado",nullable = true)
+    private int dias_descontado;
     @ManyToOne
     @JoinColumn(name = "id_cartera")
     private Carteras cartera;
     public Letrasdecambio() {}
 
-    public Letrasdecambio(int id_letra, float monto, float tea, LocalDate fechav, String deudor, float monto_recibido, float monto_entregado, float importe_descontado, float importe_retenido, Carteras cartera) {
+    public Letrasdecambio(int id_letra, float monto, float tea, LocalDate fechav, String deudor, float monto_recibido, float monto_entregado, float importe_descontado, float importe_retenido, int dias_descontado, Carteras cartera) {
         this.id_letra = id_letra;
         this.monto = monto;
         this.tea = tea;
@@ -44,6 +46,7 @@ public class Letrasdecambio implements Serializable  {
         this.monto_entregado = monto_entregado;
         this.importe_descontado = importe_descontado;
         this.importe_retenido = importe_retenido;
+        this.dias_descontado = dias_descontado;
         this.cartera = cartera;
     }
 
@@ -117,6 +120,14 @@ public class Letrasdecambio implements Serializable  {
 
     public void setImporte_retenido(float importe_retenido) {
         this.importe_retenido = importe_retenido;
+    }
+
+    public int getDias_descontado() {
+        return dias_descontado;
+    }
+
+    public void setDias_descontado(int dias_descontado) {
+        this.dias_descontado = dias_descontado;
     }
 
     public Carteras getCartera() {

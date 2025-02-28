@@ -2,6 +2,7 @@ package pe.edu.upc.backendtasadecambio.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.backendtasadecambio.dtos.CarterasDTO;
 import pe.edu.upc.backendtasadecambio.entities.Carteras;
@@ -37,5 +38,10 @@ public class CarterasController {
         ModelMapper m = new ModelMapper();
         Carteras ro=m.map(dto,Carteras.class);
         cS.update(ro);
+    }
+    @PostMapping("/{id}/calcular-tcea")
+    public ResponseEntity<String> calcularTCEA(@PathVariable int id) {
+        cS.calcularTCEA(id);
+        return ResponseEntity.ok("TCEA calculada y guardada en la base de datos.");
     }
 }

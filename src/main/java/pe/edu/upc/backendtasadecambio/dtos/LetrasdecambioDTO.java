@@ -15,6 +15,7 @@ public class LetrasdecambioDTO {
     private float monto_entregado;
     private float importe_descontado;
     private float importe_retenido;
+    private int dias_descontado;
     private Carteras cartera;
 
     public int getId_letra() {
@@ -87,6 +88,14 @@ public class LetrasdecambioDTO {
 
     public void setImporte_retenido(float importe_retenido) {
         this.importe_retenido = importe_retenido;
+    }
+
+    public int getDias_descontado() {
+        return dias_descontado;
+    }
+
+    public void setDias_descontado(int dias_descontado) {
+        this.dias_descontado = dias_descontado;
     }
 
     public Carteras getCartera() {

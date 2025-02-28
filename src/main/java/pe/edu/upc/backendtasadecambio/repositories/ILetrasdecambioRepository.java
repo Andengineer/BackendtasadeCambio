@@ -11,4 +11,6 @@ public interface ILetrasdecambioRepository extends JpaRepository<Letrasdecambio,
     //Como programador quiero buscar a las letras de cambio por fecha para gestionarlos
     @Query("SELECT l FROM Letrasdecambio l WHERE l.fechav=:fecha")
     public List<Letrasdecambio> buscarfecha(LocalDate fecha);
+    @Query(value = "SELECT * FROM Letrasdecambio WHERE id_cartera = :id_cartera", nativeQuery = true)
+    List<Letrasdecambio> findByCartera_IdCartera(int id_cartera);
 }
